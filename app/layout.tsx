@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Gabarito, Inter } from "next/font/google";
 import "./globals.css";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
 
-const inter = Inter({ subsets: ["latin"] });
+const gabarito = Gabarito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex flex-col items-center`}>
+      <body className={`${gabarito.className} flex flex-col items-center`}>
         <div className="max-w-7xl min-h-screen p-12 w-full flex flex-col gap-20 items-center">
           {children}
           <PrismicPreview repositoryName={repositoryName} />
