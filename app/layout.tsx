@@ -3,8 +3,12 @@ import { Gabarito, Inter } from "next/font/google";
 import "./globals.css";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
+import { cn } from "@/lib/utils";
 
-const gabarito = Gabarito({ subsets: ["latin"] });
+const gabarito = Gabarito({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${gabarito.className} flex flex-col items-center`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn(gabarito.variable, "flex flex-col items-center")}>
         <div className="max-w-7xl min-h-screen p-12 w-full flex flex-col gap-20 items-center">
           {children}
           <PrismicPreview repositoryName={repositoryName} />
