@@ -1,0 +1,31 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Poetry"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Occaecat sunt amet tempor ipsum ipsum fugiat. Proident in occaecat sunt voluptate excepteur ad proident do occaecat ad officia est officia nostrud. Anim qui magna veniam commodo non sunt id fugiat commodo reprehenderit occaecat ex."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
