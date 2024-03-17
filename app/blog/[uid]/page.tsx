@@ -9,9 +9,9 @@ import * as prismic from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { PrismicNextImage } from "@prismicio/next";
-import { PostCard } from "@/components/post-card";
-import { RichText } from "@/components/rich-text";
-import { Navigation } from "@/components/navigation";
+import { PostCard } from "@/components/prismic/post-card";
+import { RichText } from "@/components/prismic/rich-text";
+import { Navigation } from "@/components/prismic/navigation";
 
 type Params = { uid: string };
 

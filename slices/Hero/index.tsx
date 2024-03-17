@@ -1,4 +1,4 @@
-import { RichText } from "@/components/rich-text";
+import { RichText } from "@/components/prismic/rich-text";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicText, SliceComponentProps } from "@prismicio/react";

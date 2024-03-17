@@ -2,7 +2,7 @@
 
 import type { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import { RichText } from "@/components/rich-text";
+import { RichText } from "@/components/prismic/rich-text";
 
 type RichTextProps = SliceComponentProps<Content.RichTextSlice>;
 

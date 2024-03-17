@@ -1,5 +1,5 @@
-import { Navigation } from "@/components/navigation";
-import { PostCard } from "@/components/post-card";
+import { Navigation } from "@/components/prismic/navigation";
+import { PostCard } from "@/components/prismic/post-card";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { SliceZone } from "@prismicio/react";
