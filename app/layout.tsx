@@ -22,7 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(gabarito.className, "flex flex-col items-center")}>
+      <body
+        className={cn(
+          gabarito.className,
+          "min-h-screen flex flex-col items-center"
+        )}
+      >
         <div className="max-w-7xl min-h-screen p-12 w-full flex flex-col gap-20 items-center">
           {children}
           <PrismicPreview repositoryName={repositoryName} />
