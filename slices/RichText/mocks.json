@@ -2,7 +2,19 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nisi dolore veniam nulla magna excepteur velit do est ex et dolore. Consectetur esse esse duis qui consectetur laborum et aliqua anim."
+						}
+					}
+				]
+			}
+		},
 		"items": [
 			{
 				"__TYPE__": "GroupItemContent",
