@@ -1,23 +1,15 @@
-import { Content } from "@prismicio/client";
+// ./src/slices/RichText/index.tsx
+
+import type { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import { RichText } from "@/components/rich-text";
 
-/**
- * Props for `RichText`.
- */
-export type RichTextProps = SliceComponentProps<Content.RichTextSlice>;
+type RichTextProps = SliceComponentProps<Content.RichTextSlice>;
 
-/**
- * Component for "RichText" Slices.
- */
-const RichText = ({ slice }: RichTextProps): JSX.Element => {
+export default function RichTextSlice({ slice }: RichTextProps) {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for rich_text (variation: {slice.variation}) Slices
+    <section className="flex flex-col gap-2">
+      <RichText field={slice.primary.content} />
     </section>
   );
-};
-
-export default RichText;
+}
