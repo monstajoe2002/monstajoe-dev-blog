@@ -105,8 +105,6 @@ export default async function BlogPage({ params }: { params: Params }) {
           <PostCard key={post.id} post={post} />
         ))}
       </section>
-
-      <Navigation client={client} />
     </div>
   );
 }

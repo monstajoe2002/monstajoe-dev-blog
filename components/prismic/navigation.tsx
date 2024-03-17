@@ -2,6 +2,7 @@
 
 import { Client, Content, isFilled } from "@prismicio/client";
 import { PrismicLink } from "@prismicio/react";
+import { Button } from "../ui/button";
 
 export const Navigation = async ({
   client,
@@ -17,7 +18,9 @@ export const Navigation = async ({
           navigation.data.menu_items.map((item) => {
             return (
               <li key={item.label}>
-                <PrismicLink field={item.link}>{item.label}</PrismicLink>
+                <Button asChild variant={"link"} className="text-xl font-bold">
+                  <PrismicLink field={item.link}>{item.label}</PrismicLink>
+                </Button>
               </li>
             );
           })}
