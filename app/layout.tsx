@@ -18,9 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {children}
-        <PrismicPreview repositoryName={repositoryName} />
+      <body className={`${inter.className} flex flex-col items-center`}>
+        <div className="max-w-7xl min-h-screen p-12 w-full flex flex-col gap-20 items-center">
+          {children}
+          <PrismicPreview repositoryName={repositoryName} />
+        </div>
       </body>
     </html>
   );
