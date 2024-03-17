@@ -113,6 +113,82 @@ export type BlogPostDocument<Lang extends string = string> =
     Lang
   >;
 
+type HomepageDocumentDataSlicesSlice = HeroSlice;
+
+/**
+ * Content for Homepage documents
+ */
+interface HomepageDocumentData {
+  /**
+   * Title field in *Homepage*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Homepage*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Homepage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: homepage.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Homepage*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Homepage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: homepage.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Homepage document from Prismic
+ *
+ * - **API ID**: `homepage`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HomepageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<HomepageDocumentData>,
+    "homepage",
+    Lang
+  >;
+
 /**
  * Item in *Navigation → Menu Items*
  */
@@ -170,7 +246,10 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = BlogPostDocument | NavigationDocument;
+export type AllDocumentTypes =
+  | BlogPostDocument
+  | HomepageDocument
+  | NavigationDocument;
 
 /**
  * Primary content in *Hero → Primary*
@@ -292,6 +371,9 @@ declare module "@prismicio/client" {
       BlogPostDocument,
       BlogPostDocumentData,
       BlogPostDocumentDataSlicesSlice,
+      HomepageDocument,
+      HomepageDocumentData,
+      HomepageDocumentDataSlicesSlice,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataMenuItemsItem,
