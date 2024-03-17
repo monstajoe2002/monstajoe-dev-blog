@@ -11,41 +11,7 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {
-        "title": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Title",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading1"
-          }
-        },
-        "description": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Description",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink"
-          }
-        },
-        "featured_image": {
-          "type": "Image",
-          "config": {
-            "label": "Featured Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "publication_date": {
-          "type": "Date",
-          "config": {
-            "label": "Publication Date",
-            "placeholder": ""
-          }
-        }
-      },
+      "primary": {},
       "items": {}
     }
   ]

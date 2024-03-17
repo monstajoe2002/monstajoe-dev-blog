@@ -4,12 +4,56 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type BlogPostDocumentDataSlicesSlice = never;
+type BlogPostDocumentDataSlicesSlice = RichTextSlice;
 
 /**
  * Content for Blog Post documents
  */
 interface BlogPostDocumentData {
+  /**
+   * Title field in *Blog Post*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Blog Post*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Featured Image field in *Blog Post*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>;
+
+  /**
+   * Publication Date field in *Blog Post*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.publication_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  publication_date: prismic.DateField;
+
   /**
    * Slice Zone field in *Blog Post*
    *
@@ -151,6 +195,16 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   description: prismic.RichTextField;
+
+  /**
+   * Image field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
 }
 
 /**
@@ -181,51 +235,6 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
- * Primary content in *RichText → Primary*
- */
-export interface RichTextSliceDefaultPrimary {
-  /**
-   * Title field in *RichText → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: rich_text.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *RichText → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: rich_text.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Featured Image field in *RichText → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: rich_text.primary.featured_image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  featured_image: prismic.ImageField<never>;
-
-  /**
-   * Publication Date field in *RichText → Primary*
-   *
-   * - **Field Type**: Date
-   * - **Placeholder**: *None*
-   * - **API ID Path**: rich_text.primary.publication_date
-   * - **Documentation**: https://prismic.io/docs/field#date
-   */
-  publication_date: prismic.DateField;
-}
-
-/**
  * Default variation for RichText Slice
  *
  * - **API ID**: `default`
@@ -234,7 +243,7 @@ export interface RichTextSliceDefaultPrimary {
  */
 export type RichTextSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<RichTextSliceDefaultPrimary>,
+  Record<string, never>,
   never
 >;
 
@@ -277,7 +286,6 @@ declare module "@prismicio/client" {
       HeroSliceVariation,
       HeroSliceDefault,
       RichTextSlice,
-      RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
     };
