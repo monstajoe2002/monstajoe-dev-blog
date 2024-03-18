@@ -4,6 +4,7 @@ import "./globals.css";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 const gabarito = Gabarito({
   subsets: ["latin"],
@@ -28,10 +29,17 @@ export default function RootLayout({
           "min-h-screen flex flex-col items-center"
         )}
       >
-        <div className="max-w-7xl min-h-screen p-12 w-full flex flex-col gap-20 items-center">
-          {children}
-          <PrismicPreview repositoryName={repositoryName} />
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="max-w-7xl min-h-screen p-12 w-full flex flex-col gap-20 items-center">
+            {children}
+            <PrismicPreview repositoryName={repositoryName} />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
