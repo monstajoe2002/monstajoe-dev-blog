@@ -20,7 +20,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       <PrismicNextImage
         field={slice.primary.image}
         sizes="100vw"
-        className="w-full max-w-screen-sm max-h-full rounded-md object-cover"
+        className="w-full max-w-screen-lg mx-auto max-h-full rounded-md object-cover"
       />
       <div className="flex flex-col gap-2">
         <h1 className="font-bold text-4xl my-4">
