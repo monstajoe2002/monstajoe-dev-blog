@@ -1,6 +1,6 @@
 export function BlockWithInlineCode({ text }: { text: string }) {
   const regex = /`(.*?)`/g;
-
+  // TODO: render all blocks properly e.g. strong, em
   return (
     <>
       {text.split(regex).map((content, i) => {
