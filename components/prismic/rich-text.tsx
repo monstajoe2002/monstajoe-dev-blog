@@ -6,6 +6,7 @@ import {
   PrismicRichText,
   PrismicLink,
 } from "@prismicio/react";
+import { BlockWithInlineCode } from "../block-with-inline-code";
 
 export const richTextComponents: JSXMapSerializer = {
   label: ({ node, children }) => {
@@ -19,39 +20,10 @@ export const richTextComponents: JSXMapSerializer = {
   heading2: ({ children }) => <h2 className="font-bold text-xl">{children}</h2>,
   heading3: ({ children }) => <h3 className="font-bold text-lg">{children}</h3>,
   paragraph: ({ children, text, key }) => {
-    const regex = /`(.*?)`/g;
     const plainText = text! as string;
-    const codeMatches = plainText.match(regex);
-    if (!codeMatches) {
-      return <p>{children}</p>;
-    }
-    codeMatches?.forEach((match) => {
-      const code = match.replace(/`/g, "");
-      children.push(
-        <code
-          key={key}
-          className="relative rounded bg-primary-foreground border px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold w-fit"
-        >
-          {code}
-        </code>
-      );
-    });
     return (
       <p>
-        {plainText.split(regex).map((content, i) => {
-          if (i % 2 === 0) {
-            return content;
-          } else {
-            return (
-              <code
-                key={key + i}
-                className="relative rounded bg-primary-foreground border px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold w-fit"
-              >
-                {content}
-              </code>
-            );
-          }
-        })}
+        <BlockWithInlineCode text={plainText} />
       </p>
     );
   },
