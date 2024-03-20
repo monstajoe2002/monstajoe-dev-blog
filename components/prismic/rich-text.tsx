@@ -15,14 +15,24 @@ export const richTextComponents: JSXMapSerializer = {
     }
   },
   heading1: ({ children }) => (
-    <h1 className="font-bold text-4xl">{children}</h1>
+    <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+      {children}
+    </h1>
   ),
-  heading2: ({ children }) => <h2 className="font-bold text-xl">{children}</h2>,
-  heading3: ({ children }) => <h3 className="font-bold text-lg">{children}</h3>,
+  heading2: ({ children }) => (
+    <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+      {children}
+    </h2>
+  ),
+  heading3: ({ children }) => (
+    <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+      {children}
+    </h3>
+  ),
   paragraph: ({ text }) => {
     const plainText = text! as string;
     return (
-      <p>
+      <p className="leading-7 [&:not(:first-child)]:mt-6">
         <BlockWithInlineCode text={plainText} />
       </p>
     );
@@ -33,11 +43,13 @@ export const richTextComponents: JSXMapSerializer = {
     </PrismicLink>
   ),
   preformatted: ({ children }) => (
-    <pre className="my-5 relative rounded bg-primary-foreground px-4 py-6 font-mono text-sm font-semibold border">
+    <pre className="mt-5 relative rounded bg-primary-foreground px-4 py-6 font-mono text-sm font-semibold border">
       {children}
     </pre>
   ),
-  oList: ({ children }) => <ol className="list-decimal">{children}</ol>,
+  oList: ({ children }) => (
+    <ol className="my-6 ml-6 list-decimal [&>li]:mt-2">{children}</ol>
+  ),
 
   oListItem: ({ text }) => {
     const plainText = text! as string;
