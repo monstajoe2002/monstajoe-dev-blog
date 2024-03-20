@@ -19,7 +19,7 @@ export const richTextComponents: JSXMapSerializer = {
   ),
   heading2: ({ children }) => <h2 className="font-bold text-xl">{children}</h2>,
   heading3: ({ children }) => <h3 className="font-bold text-lg">{children}</h3>,
-  paragraph: ({ children, text, key }) => {
+  paragraph: ({ text }) => {
     const plainText = text! as string;
     return (
       <p>
@@ -37,6 +37,17 @@ export const richTextComponents: JSXMapSerializer = {
       {children}
     </pre>
   ),
+  oList: ({ children }) => <ol className="list-decimal">{children}</ol>,
+
+  oListItem: ({ text }) => {
+    const plainText = text! as string;
+
+    return (
+      <li>
+        <BlockWithInlineCode text={plainText} />
+      </li>
+    );
+  },
 };
 
 interface RichTextProps {
