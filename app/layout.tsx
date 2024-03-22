@@ -35,7 +35,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="max-w-7xl min-h-screen p-12 w-full flex flex-col gap-20 items-center">
+          <div className="max-w-7xl min-h-screen py-12 px-6 w-full flex flex-col gap-20 items-center">
             {children}
             <PrismicPreview repositoryName={repositoryName} />
           </div>
