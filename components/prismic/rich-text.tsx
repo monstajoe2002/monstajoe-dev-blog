@@ -43,7 +43,7 @@ export const richTextComponents: JSXMapSerializer = {
     </PrismicLink>
   ),
   preformatted: ({ children }) => (
-    <pre className="mt-5 relative rounded bg-primary-foreground px-4 py-6 font-mono text-sm font-semibold border">
+    <pre className="mt-5 relative rounded bg-primary-foreground px-4 py-6 font-mono text-sm font-semibold border text-wrap">
       {children}
     </pre>
   ),
