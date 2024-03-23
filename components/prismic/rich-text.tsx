@@ -29,13 +29,9 @@ export const richTextComponents: JSXMapSerializer = {
       {children}
     </h3>
   ),
-  paragraph: ({ text }) => {
-    const plainText = text! as string;
-    return (
-      <p className="leading-7 [&:not(:first-child)]:mt-6">
-        <BlockWithInlineCode text={plainText} />
-      </p>
-    );
+  paragraph: ({ children, text }) => {
+    // const plainText = text! as string;
+    return <p className="leading-7 [&:not(:first-child)]:mt-6">{children}</p>;
   },
   hyperlink: ({ children, node }) => (
     <PrismicLink field={node.data} className="font-bold underline">
@@ -51,14 +47,10 @@ export const richTextComponents: JSXMapSerializer = {
     <ol className="my-6 ml-6 list-decimal [&>li]:mt-2">{children}</ol>
   ),
 
-  oListItem: ({ text }) => {
-    const plainText = text! as string;
+  oListItem: ({ children, text }) => {
+    // const plainText = text! as string;
 
-    return (
-      <li>
-        <BlockWithInlineCode text={plainText} />
-      </li>
-    );
+    return <li>{children}</li>;
   },
 };
 
