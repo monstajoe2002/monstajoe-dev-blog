@@ -6,6 +6,7 @@ import { repositoryName } from "@/prismicio";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/providers/theme-provider";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/react";
 
 const gabarito = Gabarito({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
           "min-h-screen flex flex-col items-center"
         )}
       >
+        <Analytics />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
