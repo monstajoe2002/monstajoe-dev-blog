@@ -8,6 +8,7 @@ import {
 } from "@prismicio/react";
 import { BlockWithInlineCode } from "../block-with-inline-code";
 
+const REGEX = /`(.*?)`/g;
 export const richTextComponents: JSXMapSerializer = {
   label: ({ node, children }) => {
     if (node.data.label === "codespan") {
@@ -30,8 +31,14 @@ export const richTextComponents: JSXMapSerializer = {
     </h3>
   ),
   paragraph: ({ children, text }) => {
-    // const plainText = text! as string;
-    return <p className="leading-7 [&:not(:first-child)]:mt-6">{children}</p>;
+    const plainText = text! as string;
+    return !plainText.match(REGEX) ? (
+      <p className="scroll-m-20 text-lg leading-relaxed">{children}</p>
+    ) : (
+      <span>
+        <BlockWithInlineCode text={plainText} />
+      </span>
+    );
   },
   hyperlink: ({ children, node }) => (
     <PrismicLink field={node.data} className="font-bold underline">
@@ -48,9 +55,14 @@ export const richTextComponents: JSXMapSerializer = {
   ),
 
   oListItem: ({ children, text }) => {
-    // const plainText = text! as string;
-
-    return <li>{children}</li>;
+    const plainText = text! as string;
+    return !plainText.match(REGEX) ? (
+      <li>{children}</li>
+    ) : (
+      <li>
+        <BlockWithInlineCode text={plainText} />
+      </li>
+    );
   },
 };
 
