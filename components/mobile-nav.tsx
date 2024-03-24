@@ -18,6 +18,9 @@ export function MobileNav({ children }: { children: React.ReactNode }) {
           <span>Menu</span>
         </SheetTrigger>
         <SheetContent side={"left"}>
+          <SheetHeader>
+            <SheetTitle>monstajoe&apos;s Dev Blog</SheetTitle>
+          </SheetHeader>
           <div>{children}</div>
         </SheetContent>
       </Sheet>

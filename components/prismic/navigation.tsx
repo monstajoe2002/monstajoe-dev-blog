@@ -38,7 +38,7 @@ export const Navigation = async ({
       </nav>
       <div className="md:hidden visible">
         <MobileNav>
-          <ul className="flex">
+          <ul className="mt-4">
             {isFilled.group(navigation.data.menu_items) &&
               navigation.data.menu_items.map((item) => {
                 return (
@@ -46,7 +46,7 @@ export const Navigation = async ({
                     <PrismicLink
                       className={buttonVariants({
                         variant: "link",
-                        className: "my-4 font-bold text-xl",
+                        className: "font-bold",
                       })}
                       field={item.link}
                     >
