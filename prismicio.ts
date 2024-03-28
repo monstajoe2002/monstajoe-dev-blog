@@ -37,7 +37,7 @@ export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
     routes,
     fetchOptions: {
       next: {
-        revalidate: 300,
+        revalidate: process.env.NODE_ENV === "production" ? 60 : 5,
         tags: ["prismic"],
       },
     },
