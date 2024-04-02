@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/providers/theme-provider";
 import Head from "next/head";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const gabarito = Gabarito({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
         )}
       >
         <Analytics />
+        <SpeedInsights />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
