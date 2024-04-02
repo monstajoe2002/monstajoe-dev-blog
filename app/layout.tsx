@@ -33,7 +33,6 @@ export default function RootLayout({
         )}
       >
         <Analytics />
-        <SpeedInsights />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -44,6 +43,7 @@ export default function RootLayout({
             {children}
             <PrismicPreview repositoryName={repositoryName} />
           </div>
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
