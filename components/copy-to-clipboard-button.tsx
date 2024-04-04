@@ -22,12 +22,11 @@ export default function CopyToClipboardButton({ text }: { text: string }) {
       setCopied(true);
       toast({
         title: "Copied to clipboard",
-        isClosable: true,
       });
-    } catch (error: any) {
+    } catch {
       toast({
-        title: "Something went wrong! Try copying again.",
-        isClosable: true,
+        title: "Something went wrong!",
+        description: "Try copying again.",
         variant: "destructive",
       });
     }
