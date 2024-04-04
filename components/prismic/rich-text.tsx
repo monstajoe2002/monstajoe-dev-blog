@@ -17,7 +17,7 @@ export const richTextComponents: JSXMapSerializer = {
     }
   },
   heading1: ({ children }) => (
-    <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+    <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl my-2 text-balance">
       {children}
     </h1>
   ),
