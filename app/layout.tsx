@@ -5,9 +5,8 @@ import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/providers/theme-provider";
-import Head from "next/head";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Toaster } from "@/components/ui/toaster";
 
 const gabarito = Gabarito({
   subsets: ["latin"],
@@ -43,7 +42,7 @@ export default function RootLayout({
             {children}
             <PrismicPreview repositoryName={repositoryName} />
           </div>
-          <SpeedInsights />
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

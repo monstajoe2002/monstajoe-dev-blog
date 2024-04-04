@@ -7,6 +7,7 @@ import {
   PrismicLink,
 } from "@prismicio/react";
 import { BlockWithInlineCode } from "../block-with-inline-code";
+import CopyToClipboardButton from "../copy-to-clipboard-button";
 
 const REGEX = /`(.*?)`/g;
 export const richTextComponents: JSXMapSerializer = {
@@ -45,9 +46,10 @@ export const richTextComponents: JSXMapSerializer = {
       {children}
     </PrismicLink>
   ),
-  preformatted: ({ children }) => (
+  preformatted: ({ children, text }) => (
     <pre className="mt-5 relative rounded bg-primary-foreground px-4 py-6 font-mono text-sm font-semibold border text-wrap">
       {children}
+      <CopyToClipboardButton text={text ?? ""} />
     </pre>
   ),
   oList: ({ children }) => (
