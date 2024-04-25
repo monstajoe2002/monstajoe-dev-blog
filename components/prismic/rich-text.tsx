@@ -1,5 +1,5 @@
 // ./src/components/RichText.tsx
-
+"use client";
 import { RichTextField } from "@prismicio/client";
 import {
   JSXMapSerializer,
@@ -8,6 +8,9 @@ import {
 } from "@prismicio/react";
 import { BlockWithInlineCode } from "../block-with-inline-code";
 import CopyToClipboardButton from "../copy-to-clipboard-button";
+import { useEffect } from "react";
+import "highlight.js/styles/tomorrow-night-blue.css";
+import hljs from "highlight.js";
 
 const REGEX = /`(.*?)`/g;
 export const richTextComponents: JSXMapSerializer = {
@@ -46,12 +49,18 @@ export const richTextComponents: JSXMapSerializer = {
       {children}
     </PrismicLink>
   ),
-  preformatted: ({ children, text }) => (
-    <pre className="mt-5 relative rounded bg-primary-foreground px-4 py-6 font-mono text-sm font-semibold border text-wrap">
-      {children}
-      <CopyToClipboardButton text={text ?? ""} />
-    </pre>
-  ),
+  preformatted: ({ text }) => {
+    const plainText = text! as string;
+
+    return (
+      <pre className="relative">
+        <code className="mt-5 relative rounded bg-primary-foreground px-4 py-6 font-mono text-sm font-semibold border text-wrap">
+          {plainText}
+        </code>
+        <CopyToClipboardButton text={text ?? ""} />
+      </pre>
+    );
+  },
   oList: ({ children }) => (
     <ol className="my-6 ml-6 list-decimal [&>li]:mt-2">{children}</ol>
   ),
@@ -73,5 +82,8 @@ interface RichTextProps {
 }
 
 export const RichText = ({ field }: RichTextProps) => {
+  useEffect(() => {
+    hljs.highlightAll();
+  });
   return <PrismicRichText field={field} components={richTextComponents} />;
 };
