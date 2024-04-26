@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Gabarito, Inter } from "next/font/google";
+import { Fira_Sans, Inter, Noto_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/toaster";
 
-const gabarito = Gabarito({
+const notoSans = Noto_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          gabarito.className,
+          notoSans.className,
           "min-h-screen flex flex-col items-center"
         )}
       >
