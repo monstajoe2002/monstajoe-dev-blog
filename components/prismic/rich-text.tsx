@@ -50,10 +50,8 @@ export const richTextComponents: JSXMapSerializer = {
     const plainText = text! as string;
 
     return (
-      <pre className="relative">
-        <code className="mt-5 relative rounded bg-primary-foreground px-4 py-6 font-mono text-sm font-semibold border text-wrap">
-          {plainText}
-        </code>
+      <pre className="mt-5 relative rounded bg-primary-foreground px-4 py-6 font-mono text-sm font-semibold border text-wrap">
+        {plainText}
         <CopyToClipboardButton text={text ?? ""} />
       </pre>
     );
