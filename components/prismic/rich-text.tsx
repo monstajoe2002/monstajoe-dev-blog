@@ -8,9 +8,6 @@ import {
 } from "@prismicio/react";
 import { BlockWithInlineCode } from "../block-with-inline-code";
 import CopyToClipboardButton from "../copy-to-clipboard-button";
-import { useEffect } from "react";
-import "highlight.js/styles/tomorrow-night-blue.css";
-import hljs from "highlight.js";
 
 const REGEX = /`(.*?)`/g;
 export const richTextComponents: JSXMapSerializer = {
@@ -82,8 +79,5 @@ interface RichTextProps {
 }
 
 export const RichText = ({ field }: RichTextProps) => {
-  useEffect(() => {
-    hljs.highlightAll();
-  });
   return <PrismicRichText field={field} components={richTextComponents} />;
 };
