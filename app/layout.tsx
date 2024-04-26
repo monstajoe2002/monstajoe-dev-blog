@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fira_Sans, Inter, Noto_Sans, Poppins } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
